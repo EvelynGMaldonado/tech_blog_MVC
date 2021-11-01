@@ -5,21 +5,43 @@ const loginForm = document.querySelector("#login-form");
 
 loginForm.addEventListener("submit",(e)=>{
     e.preventDefault();
-    const userObj={
-        email:document.querySelector("#email").value,
-        password:document.querySelector("#password").value,
-    }
-    fetch("/api/users/login",{
-        method:"POST",
-        body:JSON.stringify(userObj),
-        headers:{
-            "Content-Type":"application/json"
-        }
-    }).then(res=>{
-        if(res.ok){
-           location.href = "/profile"
+    
+    const loginEmail = document.querySelector("#email").value,
+    const loginPassword = document.querySelector("#password").value,
+    
+    if(loginEmail && loginPassword){
+        const resp = await fetch('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({ email: loginEmail, password: loginPassword }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+
+        if(resp.ok){
+            console.log(resp);
+            location.replace('/profile')
         } else {
-            alert("trumpet sound")
+            alert('YOU ENTERED THE WRONG INFORMATION')
         }
-    })
-})
+    }
+});
+
+signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const signupEmail = document.querySelector('#signupemail').value
+    const signupUsername = document.querySelector('#signupusername').value
+    const signupPassword = document.querySelector('#signuppassword').value
+
+    if(signupEmail && signupPassword && signupUsername){
+        const resp = await fetch('/api/users', {
+            method: 'POST',
+            body: JSON.stringify({ email:signupEmail, password:signupPassword, name:signupUsername }),
+            headers: { 'Content-Type': 'application/json' }
+        })
+
+        if(resp.ok){
+            location.href = '/profile'
+        } else {
+            alert('User already exists')
+        }
+    }
+});
