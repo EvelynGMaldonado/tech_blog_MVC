@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const {User,Pet,Group} = require('../../models');
+const {User,Post} = require('../../models');
 const bcrypt = require("bcrypt");
 
 router.get("/",(req,res)=>{
     User.findAll({
-        include:[Pet,Group]
+        include:[Post]
     }).then(dbUsers=>{
         if(dbUsers.length){
             res.json(dbUsers)
@@ -54,7 +54,7 @@ router.post("/login",(req,res)=>{
             }
         }
     }).catch(err=>{
-         console.log(err);
+        console.log(err);
         res.status(500).json(err);
     })
 })
