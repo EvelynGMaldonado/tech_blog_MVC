@@ -16,6 +16,7 @@ router.get("/",(req,res)=>{
     })
 })
 
+
 router.get("/post/:id",(req,res)=>{
     
     Post.findByPk(req.params.id,{

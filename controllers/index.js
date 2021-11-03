@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const frontEndRoutes = require("./frontEndRoutes.js");
 const apiRoutes = require("./api");
-const sessionRoutes = require("./sessionsRoutes")
+const dashboardController = require("./dashboardController.js")
 
 
 router.use("/", frontEndRoutes);
 router.use("/api",apiRoutes);
-router.use("/sessions",sessionRoutes);
+router.use("/dashboard", dashboardController);
 
 
 module.exports = router;

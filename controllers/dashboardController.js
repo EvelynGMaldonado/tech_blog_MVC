@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Post, User} = require("../../models");
 
+//localhoast.com/dashboard
 router.get("/",(req,res)=>{
     if(!req.session.user){
         return res.status(401).send("you need to log in first to be able to update a post!")
@@ -22,7 +23,7 @@ router.get("/",(req,res)=>{
         res.status(500).json({ message: "an error occured", err: err });
     });
 });
-
+//localhoast.com/dashboard/create-post
 router.get("/create-post", (req, res) => {
     if(!req.session.user){
         return res.status(401).send("you need to log in first to be able to update a post!")
@@ -52,3 +53,4 @@ router.get("/update-post/:id", (req, res) => {
     });
     
 })
+module.exports = router;
