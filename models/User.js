@@ -16,10 +16,6 @@ User.init({
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    },
     username: {
         type: DataTypes.STRING,
         unique:true,
@@ -27,13 +23,13 @@ User.init({
         isAlphanumeric:true
         }
     },
-    email:{
-        type:DataTypes.STRING,
-        unique:true,
-        validate:{
-            isEmail:true
-        }
-    },
+    // email:{
+    //     type:DataTypes.STRING,
+    //     unique:true,
+    //     validate:{
+    //         isEmail:true
+    //     }
+    //},
     password:{
         type:DataTypes.STRING,
         validate:{
