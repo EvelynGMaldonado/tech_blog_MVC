@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const hbs = exphbs.create({});
 
 // Requiring our models for syncing
-const {User,Pet,Group} = require('./models');
+const {User,Post} = require('./models');
 const routes = require("./controllers");
 
 app.engine('handlebars', hbs.engine);
@@ -40,7 +40,7 @@ app.use(express.json());
 
 app.use(routes)
 
-sequelize.sync({ force: false }).then(function() {
+sequelize.sync({ force: true }).then(function() {
     app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
     });

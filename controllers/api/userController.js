@@ -34,11 +34,13 @@ router.post("/",(req,res)=>{
 })
 
 router.post("/login",(req,res)=>{
+    return res.status(500);
     User.findOne({
         where:{
             email:req.body.email
         }
     }).then(foundUser=>{
+        res.json()
         if(!foundUser){
             res.status(401).json({message:"incorrect email or password"})
         } else {
@@ -53,7 +55,7 @@ router.post("/login",(req,res)=>{
                 res.status(401).json({message:"incorrect email or password"})
             }
         }
-    }).catch(err=>{
+    }).catch(err=> {
         console.log(err);
         res.status(500).json(err);
     })

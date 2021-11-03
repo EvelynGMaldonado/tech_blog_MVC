@@ -4,7 +4,7 @@ const router = express.Router();
 const userRoutes = require("./userController");
 router.use("/users",userRoutes);
 
-const petRoutes = require("./postsController");
-router.use("/posts",petRoutes);
+const postRoutes = require("./postsController");
+router.use("/posts",postRoutes);
 
 module.exports = router;

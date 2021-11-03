@@ -1,13 +1,14 @@
-const loginForm = document.querySelector("#login-form");
+const loginForm = document.querySelector("#login");
+const signupForm = document.querySelector("#signup");
 
 //TODO: collect data from login form, make post request to log in user.  
 //TODO: once you get an ok response, redirect to the profile page
 
-loginForm.addEventListener("submit",(e)=>{
+loginForm.addEventListener("submit", async (e)=>{
     e.preventDefault();
     
-    const loginEmail = document.querySelector("#email").value,
-    const loginPassword = document.querySelector("#password").value,
+    const loginEmail = document.querySelector("#email").value;
+    const loginPassword = document.querySelector("#password").value;
     
     if(loginEmail && loginPassword){
         const resp = await fetch('/api/users/login', {
@@ -16,10 +17,12 @@ loginForm.addEventListener("submit",(e)=>{
             headers: { 'Content-Type': 'application/json' }
         })
 
+        // resp = await resp.json();
+        console.log(resp);
         if(resp.ok){
-            console.log(resp);
-            location.replace('/profile')
+            // location.replace('/profile')
         } else {
+            
             alert('YOU ENTERED THE WRONG INFORMATION')
         }
     }

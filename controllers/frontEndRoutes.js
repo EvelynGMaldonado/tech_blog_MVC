@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {Post,User} = require('../models');
+const {Post, User, Comment} = require('../models');
 
 router.get("/",(req,res)=>{
     Post.findAll({
@@ -9,27 +9,41 @@ router.get("/",(req,res)=>{
     }).then(postData=>{
 
         const hbsPosts = postData.map(post=>post.get({plain:true}))
-        // res.json(hbsPets)
+        // res.json(hbsPosts)
         res.render("home",{
             posts:hbsPosts
         })
     })
 })
 
-router.get("/profile",(req,res)=>{
-    if(!req.session.user){
-        return res.status(401).send("login first!")
-    }
-    User.findByPk(req.session.user.id,{
-        include:[Post]
-    }).then(userData=>{
-        const hbsUser = userData.get({plain:true});
-        res.render("profile",hbsUser)
+router.get("/post/:id",(req,res)=>{
+    
+    Post.findByPk(req.params.id,{
+        include:[User, {
+            model:Comment,
+            include:[User]
+        }]
+    }).then(postData=>{
+        const post = postData.get({plain:true});
+        res.render("post",{ post })
     })
 })
 
 router.get("/login",(req,res)=>{
-    res.render("login")
+    if(req.session.loggedIn) {
+        res.redirect("/");
+        return
+    }
+    res.render("login");
+
 })
 
+router.get("/signup",(req,res)=>{
+    if(req.session.loggedIn) {
+        res.redirect("/home");
+        return
+    }
+    res.render("home");
+
+})
 module.exports = router;
