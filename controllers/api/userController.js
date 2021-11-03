@@ -83,15 +83,7 @@ router.post("/login",(req,res)=>{
     })
 })
 
-router.delete("/:id",(req,res)=>{
-    User.destroy({
-        where:{
-            id:req.params.id
-        }
-    }).then(delUser=>{
-        res.json(delUser)
-    })
-});
+
 
 router.post("/logout", (req, res) => {
     if(req.session.loggedIn) {

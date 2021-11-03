@@ -2,22 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Post, User } = require("../../models");
 
-router.get("/", (req, res) => {
-  Post.findAll({
-    include:[User]
-  })
-    .then(dbPosts => {
-      if (dbPosts.length) {
-        res.json(dbPosts);
-      } else {
-        res.status(404).json({ message: "No posts found!" });
-      }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ message: "an error occured", err: err });
-    });
-});
+
 
 router.post("/", (req, res) => {
   if(!req.session.user){
@@ -26,9 +11,8 @@ router.post("/", (req, res) => {
   Post.create({
     name: req.body.name,
     description: req.body.description,
-    age: req.body.age,
-    User_id:req.session.user.id,
-    post_username:req.session.user.username
+    userId:req.session.userId,
+
   })
     .then(newPost => {
       res.json(newPost);
@@ -39,4 +23,30 @@ router.post("/", (req, res) => {
     });
 });
 
+router.put("/:id",(req,res)=>{
+  if(!req.session.user){
+    return res.status(401).send("you need to log in first to be able to update a post!")
+  }
+  Post.update(req.body, {
+      where:{
+          id:req.params.id
+      }
+  }).then(updatePost=>{
+      res.json(updatePost)
+  })
+});
+
+router.delete("/:id",(req,res)=>{
+  if(!req.session.user){
+    return res.status(401).send("you need to log in first to be able to delete a post!")
+  }
+  Post.destroy({
+      where:{
+          id:req.params.id
+      }
+  }).then(delPost=>{
+      res.json(delPost)
+  })
+});
 module.exports = router;
+
