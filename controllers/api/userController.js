@@ -69,14 +69,14 @@ router.post("/login",(req,res)=>{
             return;
         } 
         //else save session and response with success code
-        else { (validPassword => {
-            req.session.save(() =>{
-                req.session.userId = validPassword.id;
-                req.session.username = validPassword.username;
-                req.session.loggedIn = true;
-            })
-        })
-    }
+        req.session.save(() =>{
+            req.session.userId = validPassword.id;
+            req.session.username = validPassword.username;
+            req.session.loggedIn = true;
+        });
+        res.status(200).json({message: "Success!"})
+
+    
     }).catch(err=> {
         console.log(err);
         res.status(500).json(err);
@@ -91,6 +91,17 @@ router.delete("/:id",(req,res)=>{
     }).then(delUser=>{
         res.json(delUser)
     })
-})
+});
+
+router.post("/logout", (req, res) => {
+    if(req.session.loggedIn) {
+        req.session.destroy(() => {
+            res.status(200).end();
+            return;
+        })
+    } else {
+        res.status(400).end();
+    }
+});
 
 module.exports = router;
