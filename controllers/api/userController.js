@@ -48,7 +48,7 @@ router.post("/login",(req,res)=>{
     
         if(!foundUser){
             res.status(401).json({message:"incorrect email or password"})
-            return
+            return;
         } 
         // else {
         //     if(bcrypt.compareSync(req.body.password,foundUser.password)){
@@ -63,10 +63,20 @@ router.post("/login",(req,res)=>{
         //     }
         // }
         const isValidPassword = foundUser.checkPassword(req.body.password)
-
         //if is not valid then respond with 4000 code
-
+        if(!isValidPassword) {
+            res.status(400).json({message:"Invalid password"})
+            return;
+        } 
         //else save session and response with success code
+        else { (validPassword => {
+            req.session.save(() =>{
+                req.session.userId = validPassword.id;
+                req.session.username = validPassword.username;
+                req.session.loggedIn = true;
+            })
+        })
+    }
     }).catch(err=> {
         console.log(err);
         res.status(500).json(err);
