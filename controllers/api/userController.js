@@ -24,8 +24,14 @@ router.post("/",(req,res)=>{
         username:req.body.username,
         // password:encryptedPassword,
         password:req.body.password,
-        email:req.body.email
+        // email:req.body.email
     }).then(newUser=>{
+        req.seesion.save(()=>{
+            req.session.userId = newUser.id;
+            req.session.username = newUser.username;
+            req.session.loggedIn = true;
+        })
+
         res.json(newUser);
     }).catch(err=>{
         console.log(err);
@@ -34,27 +40,33 @@ router.post("/",(req,res)=>{
 })
 
 router.post("/login",(req,res)=>{
-    return res.status(500);
     User.findOne({
         where:{
-            email:req.body.email
+            username:req.body.username
         }
     }).then(foundUser=>{
-        res.json()
+    
         if(!foundUser){
             res.status(401).json({message:"incorrect email or password"})
-        } else {
-            if(bcrypt.compareSync(req.body.password,foundUser.password)){
-                req.session.user = {
-                    username:foundUser.username,
-                    email:foundUser.email,
-                    id:foundUser.id
-                }
-                res.json(foundUser)
-            } else {
-                res.status(401).json({message:"incorrect email or password"})
-            }
-        }
+            return
+        } 
+        // else {
+        //     if(bcrypt.compareSync(req.body.password,foundUser.password)){
+        //         req.session.user = {
+        //             username:foundUser.username,
+        //             email:foundUser.email,
+        //             id:foundUser.id
+        //         }
+        //         res.json(foundUser)
+        //     } else {
+        //         res.status(401).json({message:"incorrect email or password"})
+        //     }
+        // }
+        const isValidPassword = foundUser.checkPassword(req.body.password)
+
+        //if is not valid then respond with 4000 code
+
+        //else save session and response with success code
     }).catch(err=> {
         console.log(err);
         res.status(500).json(err);
