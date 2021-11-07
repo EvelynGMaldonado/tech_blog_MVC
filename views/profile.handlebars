@@ -1,7 +1,7 @@
 <h1>Welcome back, {{username}}</h1>
 {{#each posts as |userPost|}}
     <div class="card">
-        <a href='/post/{{userPost.id}}'>{{userPost.name}}</a>
+        <a href='/posts/{{userPost.id}}'>{{userPost.name}}</a>
         <h3>{{userPost.date_created}}</h3>
         <h5>Created by: {{userPost.post_username}}</h5>
     </div>

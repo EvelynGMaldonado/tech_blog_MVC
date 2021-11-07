@@ -20,7 +20,7 @@ loginForm.addEventListener("submit", async (e)=>{
         // resp = await resp.json();
         console.log(resp);
         if(resp.ok){
-            // location.replace('/profile')
+            location.replace('/profile')
         } else {
             
             alert('YOU ENTERED THE WRONG INFORMATION')

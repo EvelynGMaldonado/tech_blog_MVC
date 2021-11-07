@@ -1,15 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const { Post, User} = require("../../models");
+const { Post, User} = require("../models");
 
 //localhoast.com/dashboard
 router.get("/",(req,res)=>{
-    if(!req.session.user){
-        return res.status(401).send("you need to log in first to be able to update a post!")
-    }
+    // if(!req.session.user){
+    //     return res.status(401).send("you need to log in first to be able to update a post!")
+    // }
     Post.findAll({
         where: {
-            userId:req.body.userId,
+            name: req.body.name,
+            description: req.body.description,
+
+            // userId:req.body.userId,
         }
     }).then(postData=>{
 

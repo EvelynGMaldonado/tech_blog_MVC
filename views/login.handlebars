@@ -1,18 +1,24 @@
-<h1>THis is the login page</h1>
+
 {{!-- TODO: create a login form --}}
-<h1>Login to your account</h1>
-<form id='login'>
-  <input id='email' placeholder='email' type='email' />
-  <input id='password' placeholder='password' type='password' />
-  <button type='submit'>Login</button>
-</form>
+<div class="container">
+        <h1 class=" font-effect-shadow-multiple title-responsive"> This is the login page</h1>
+        <div class = "row">     
+            <div class = "col-sm-12 col-md-4 offset-md-1" id="form">
+                <form id="login-form" class="rounded">
+                    <h2>Log In</h2>
 
-<h1>Create and account with us</h1>
-<form id='signup'>
-  <input id='signupusername' placeholder='username' type='text' />
-  <input id='signupemail' placeholder='email' type='email' />
-  <input id='signuppassword' placeholder='password' type='password' />
-  <button type='button'>Login</button>
-</form>
+                    <label for="emaillogin" class="form-label">Email address</label>
+                    <input type="text" class="form-control" id="email-login" placeholder = "email">
 
-<script src="/login.js"></script>
+                    <label for="passwordlogin" class="form-label">Password</label>
+                    <input type="text" class="form-control mb-2" id="password-login" placeholder ="password">
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Log In</button>
+                </form>
+        </div>
+    </div>
+
+<script src="../public/js/login.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
