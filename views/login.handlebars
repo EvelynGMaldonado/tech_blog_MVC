@@ -3,21 +3,24 @@
 <div class="container">
         <h1 class=" font-effect-shadow-multiple title-responsive"> This is the login page</h1>
         <div class = "row">     
+            <div class="col-sm-12 col-md-3 margin-responsive text-center" id="left-image">
+            </div>        
             <div class = "col-sm-12 col-md-4 offset-md-1" id="form">
-                <form id="login-form" class="rounded">
-                    <h2>Log In</h2>
+                <form id="login-form">
+                    <h2>Log in</h2>
 
                     <label for="emaillogin" class="form-label">Email address</label>
-                    <input type="text" class="form-control" id="email-login" placeholder = "email">
+                    <input type="text" class="form-control" id="login" placeholder = "email">
 
                     <label for="passwordlogin" class="form-label">Password</label>
-                    <input type="text" class="form-control mb-2" id="password-login" placeholder ="password">
+                    <input type="text" class="form-control mb-2" id="email" placeholder ="password">
 
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Log In</button>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button>
                 </form>
-        </div>
+            </div>
+        <div class="col-sm-12 col-md-3 margin-responsive text-center offset-md-1" id="right-image"></div>
     </div>
-
+</div>
 <script src="../public/js/login.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
