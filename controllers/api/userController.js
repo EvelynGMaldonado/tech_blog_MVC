@@ -26,13 +26,15 @@ router.post("/",(req,res)=>{
         password:req.body.password,
         // email:req.body.email
     }).then(newUser=>{
-        req.seesion.save(()=>{
+        console.log(newUser);
+        req.session.save(()=>{
             req.session.userId = newUser.id;
             req.session.username = newUser.username;
             req.session.loggedIn = true;
-        })
 
-        res.json(newUser);
+            res.json(newUser);
+        })
+       
     }).catch(err=>{
         console.log(err);
         res.status(500).json({message:"an error occured",err:err})
@@ -70,13 +72,13 @@ router.post("/login",(req,res)=>{
         } 
         //else save session and response with success code
         req.session.save(() =>{
-            req.session.userId = validPassword.id;
-            req.session.username = validPassword.username;
+            req.session.userId = foundUser.id;
+            req.session.username = foundUser.username;
             req.session.loggedIn = true;
-        });
-        res.status(200).json({message: "Success!"})
 
-    
+             res.status(200).json({message: "Success!"})
+        });
+       
     }).catch(err=> {
         console.log(err);
         res.status(500).json(err);

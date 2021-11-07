@@ -4,20 +4,20 @@ const { Post, User} = require("../models");
 
 //localhoast.com/dashboard
 router.get("/",(req,res)=>{
-    // if(!req.session.user){
-    //     return res.status(401).send("you need to log in first to be able to update a post!")
-    // }
+    
+    if(!req.session.userId){
+        console.log(req.session)
+        return res.status(401).send("you need to log in first to be able to update a post!")
+        
+    }
     Post.findAll({
         where: {
-            name: req.body.name,
-            description: req.body.description,
-
-            // userId:req.body.userId,
+            userId:req.session.userId,
         }
     }).then(postData=>{
 
         const hbsPosts = postData.map(post=>post.get({plain:true}))
-        // res.json(hbsPosts)
+       console.log("HIT--------------", hbsPosts)
         res.render("dashboard",{
             posts:hbsPosts
         })
@@ -27,11 +27,11 @@ router.get("/",(req,res)=>{
     });
 });
 //localhoast.com/dashboard/create-post
-router.get("/create-post", (req, res) => {
+router.get("/createpost", (req, res) => {
     if(!req.session.user){
         return res.status(401).send("you need to log in first to be able to update a post!")
     }
-    res.render("create-post")
+    res.render("createpost")
 
 });
 
