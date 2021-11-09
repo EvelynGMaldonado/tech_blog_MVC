@@ -4,12 +4,12 @@ const {Post, User, Comment} = require('../models');
 
 router.get("/",(req,res)=>{
     Post.findAll({
-        order:["UserId"],
         include:[User]
     }).then(postData=>{
-
+        console.log(postData)
         const hbsPosts = postData.map(post=>post.get({plain:true}))
         // res.json(hbsPosts)
+        console.log("Line 13",hbsPosts);
         res.render("home",{
             posts:hbsPosts
         })
