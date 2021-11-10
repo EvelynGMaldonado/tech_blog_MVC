@@ -17,7 +17,6 @@ router.get("/",(req,res)=>{
     }).then(postData=>{
 
         const hbsPosts = postData.map(post=>post.get({plain:true}))
-       console.log("HIT--------------", hbsPosts)
         res.render("dashboard",{
             posts:hbsPosts
         })
@@ -27,8 +26,9 @@ router.get("/",(req,res)=>{
     });
 });
 //localhoast.com/dashboard/create-post
-router.get("/createpost", (req, res) => {
-    if(!req.session.user){
+router.get("/create-post", (req, res) => {
+    console.log("this is my create post route")
+    if(!req.session.userId){
         return res.status(401).send("you need to log in first to be able to update a post!")
     }
     res.render("createpost")
@@ -36,7 +36,7 @@ router.get("/createpost", (req, res) => {
 });
 
 router.get("/update-post/:id", (req, res) => {
-    if(!req.session.user){
+    if(!req.session.userId){
         return res.status(401).send("you need to log in first to be able to update a post!")
     }
     Post.findByPk(req.params.id)

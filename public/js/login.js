@@ -6,10 +6,8 @@ const loginFormBTN = document.getElementById("login-form-button");
 
 const login = async (e)=>{
     e.preventDefault();
-    console.log("hit")
     const username = document.querySelector("#username").value;
     const loginPassword = document.querySelector("#password").value;
-    console.log(loginPassword, " ", username)
     if(username && loginPassword){
         const resp = await fetch('/api/users/login', {
             method: 'POST',

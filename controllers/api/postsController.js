@@ -5,7 +5,7 @@ const { Post, User } = require("../../models");
 
 
 router.post("/", (req, res) => {
-  if(!req.session.user){
+  if(!req.session.userId){
     return res.status(401).send("you need to log in first to be able to create a post!")
   }
   Post.create({
@@ -24,7 +24,7 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id",(req,res)=>{
-  if(!req.session.user){
+  if(!req.session.userId){
     return res.status(401).send("you need to log in first to be able to update a post!")
   }
   Post.update(req.body, {
@@ -37,7 +37,7 @@ router.put("/:id",(req,res)=>{
 });
 
 router.delete("/:id",(req,res)=>{
-  if(!req.session.user){
+  if(!req.session.userId){
     return res.status(401).send("you need to log in first to be able to delete a post!")
   }
   Post.destroy({

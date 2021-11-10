@@ -16,7 +16,7 @@ const signup = async (e) => {
         })
 
         if(resp.ok){
-            location.href = '/home'
+            location.href = '/dashboard'
         } else {
             alert('User already exists')
             location.href = '/login'

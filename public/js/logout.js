@@ -6,7 +6,7 @@ logOutBtn.addEventListener('click', async () => {
         headers: { 'Content-Type': 'application/json'},
     })
     if(response.ok){
-        location.href = '/home'
+        location.href = '/'
     } else {
         alert(response.statusText)
     }
