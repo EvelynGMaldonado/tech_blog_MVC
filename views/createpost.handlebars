@@ -1,22 +1,19 @@
 <div class="card">
-        <a href='/post/{{}}'></a>
-        <h2>Enter your post below:</h2>
+        <a href='/post/{{userId}}'></a>
             <form>
+                <label for="postName">Enter the title of your post</label>
                 <input id='post-name' placeholder='post name' type='input' />
-                
             </form>
-        <h3>{{userPost.date_created}}</h3>
-        <form class="was-validated">
+            <form class="was-validated">
             <div class="mb-3">
-                
-                <label for="validationTextarea">Post</label>
+                <label for="validationTextarea">Enter yout post</label>
                 <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Enter your post" required></textarea>
                 <div class="invalid-feedback">
                 Please enter a message in the textarea.
                 </div>
-                <button type='submit'>Post</button>
+                <h5>Created by: {{userPost.post_username}}</h5>
+                <h3>{{userPost.date_created}}</h3>
+                <button type='submit'>Create my new post</button>
+                {{!-- i am taken back to the updated dashboard --}}
             </div>
-            
-        <h5>Created by: {{userPost.post_username}}</h5>
-
-    </div>
+</div>

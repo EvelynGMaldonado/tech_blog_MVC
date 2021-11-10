@@ -1,0 +1,12 @@
+{{#each posts as |userPost|}}
+    <div class="card">
+        <a href='/post/{{userPost.id}}'>{{userPost.name}}</a>
+        <h3>{{userPost.date_created}}</h3>
+        <h5>Created by: {{userPost.post_username}}</h5>
+        <p>Comment: </p>
+        <form>
+            <input id='post-comment' placeholder='leave a comment' type='password' />
+            <button type='submit'>Comment</button>
+        </form>
+    </div>
+{{/each}}

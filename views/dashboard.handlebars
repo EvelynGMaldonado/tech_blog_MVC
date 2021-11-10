@@ -1,14 +1,35 @@
 <h1>Dashboard</h1>
 
+
+{{!-- WHEN I click on the dashboard option in the navigation
+THEN I am taken to the dashboard and presented with any blog 
+posts I have already created and the option to add a new blog post
+--}}
+<div>
 {{#each posts as |userPost|}}
     <div class="card">
         <a href='/post/{{userPost.id}}'>{{userPost.name}}</a>
         <h3>{{userPost.date_created}}</h3>
         <h5>Created by: {{userPost.post_username}}</h5>
-        <p>Comment: </p>
-        <form>
-            <input id='post-comment' placeholder='leave a comment' type='password' />
-            <button type='submit'>Comment</button>
-        </form>
     </div>
 {{/each}}
+        <form>
+            <button type='submit'>Add new post</button>
+            <button type='submit'>Update my post</button>
+            <button type='submit'>Delete my post</button>
+        </form>
+
+</div>
+{{!-- 
+WHEN I click on the button to add a new blog post
+THEN I am prompted to enter both a title and contents for my blog post
+WHEN I click on the button to create a new blog post
+THEN the title and contents of my post are saved and (refresh page??) I am 
+taken back to an updated dashboard with my new blog post --}}
+
+{{!-- 
+WHEN I click on one of my existing posts in the dashboard
+THEN I am able to delete or update my post and 
+taken back to an updated dashboard --}}
+
+

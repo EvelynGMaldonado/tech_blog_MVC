@@ -19,6 +19,7 @@ User.init({
     username: {
         type: DataTypes.STRING,
         unique:true,
+        allowNull: false,
         validate:{
         isAlphanumeric:true
         }
@@ -32,20 +33,19 @@ User.init({
     //},
     password:{
         type:DataTypes.STRING,
+        allowNull: false,
         validate:{
             len:[8]
         }
     }
 },{
     hooks:{
-        beforeCreate(newUser){
-            newUser.username = newUser.username.toLowerCase();
-            newUser.password = bcrypt.hashSync(newUser.password,5);
+        beforeCreate: async (newUser) => {
+            newUser.password = await bcrypt.hashSync(newUser.password,10);
             return newUser;
         },
-        beforeUpdate(updatedUser){
-            updatedUser.username = updatedUser.username.toLowerCase();
-            updatedUser.password = bcrypt.hashSync(updatedUser.password,5);
+        beforeUpdate:async (updatedUser) =>{
+            updatedUser.password = await bcrypt.hashSync(updatedUser.password,10);
             return updatedUser;
         }
     },
