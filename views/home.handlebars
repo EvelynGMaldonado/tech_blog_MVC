@@ -3,6 +3,13 @@
 {{!-- includes existing blog posts if any have been posted; navigation links for 
 the homepage and the dashboard; and the option to log in --}}
 
+{{#each post as |userPost|}}
+    <div class="card">
+        <a href='/home'>{{hbsPosts}}</a>
+        <button id="see-full-post-btn" type='submit'>See full post</button>
+        </form>
+    </div>
+{{/each}}
 
 {{!--WHEN I click on the homepage option
 THEN I am taken to the homepage
@@ -15,16 +22,7 @@ WHEN I click on an existing blog post
 THEN I am presented with the post title, contents,
 post creator’s username, and 
 date created for that post and have the option to leave a comment --}}
-{{#each posts as |userPost|}}
-    <div class="card">
-        <a href='/post/{{userPost.id}}'>{{userPost.name}}</a>
-        <h3>{{userPost.date_created}}</h3>
-        <h5>Created by: {{userPost.post_username}}</h5>
-        <form>
-            <button type='submit'>See full post</button>
-        </form>
-    </div>
-{{/each}}
+
 
 {{!-- WHEN I enter a comment and click on the submit button while signed in
 THEN the comment is saved and the post is updated to display the 

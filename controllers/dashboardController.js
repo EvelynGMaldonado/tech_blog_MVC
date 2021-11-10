@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { Post, User} = require("../models");
 
-//localhoast.com/home
+//localhoast.com/dashboard
 router.get("/",(req,res)=>{
     
     if(!req.session.userId){
