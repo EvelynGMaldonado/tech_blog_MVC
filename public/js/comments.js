@@ -1,23 +1,29 @@
-const seeFullPostBTN = document.getElementById("see-full-post-btn");
-const postCommentBTN = document.getElementById("my-comment");
+const postCommentForm = document.getElementById("create-comment-form");
+const postCommentBTN = document.getElementById("my-comment-btn");
 
 const tocomment = async(e) => {
     e.preventDefault()
-    if(req.session.loggedIn){
+    const postId = document.querySelector("#post-id").dataset.post;
+    const body = document.querySelector("#validationTextarea").value;
+    console.log(body, postId);
+    if(body && postId){
+        const resp = await fetch('/api/comments', {
+            method: 'POST',
+            body: JSON.stringify({ body:body, postId:postId}),
+            headers: { 'Content-Type': 'application/json' }
+        })
+
+        // resp = await resp.json();
+        console.log(resp);
         if(resp.ok){
-            location.href = '/comments'
+            location.reload()
         } else {
-            alert('You need to login in order to comment')
-            location.href = '/login'
+            
+            alert('YOU ENTERED THE WRONG INFORMATION')
         }
-    }
-};
-
-const leaveComment = async(e) => {
-    e.preventDefault()
-
+ };
 }
 
 
-postCommentBTN.addEventListener('click',leaveComment);
-seeFullPostBTN.addEventListener('click', tocomment);
+postCommentBTN.addEventListener('click',tocomment);
+postCommentForm.addEventListener('submit', tocomment);

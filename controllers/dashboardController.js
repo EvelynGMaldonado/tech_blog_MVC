@@ -34,15 +34,16 @@ router.get("/create-post", (req, res) => {
     res.render("createpost")
 
 });
-
+//dashboard/
 router.get("/update-post/:id", (req, res) => {
     if(!req.session.userId){
         return res.status(401).send("you need to log in first to be able to update a post!")
     }
     Post.findByPk(req.params.id)
     .then(singlePost => {
+        console.log(singlePost)
         if(singlePost){
-            const post = singlePost.map(post=>post.get({plain:true}))
+            const post = singlePost.get({plain:true})
             // res.json(hbsPosts)
             res.render("updatepost",{
                 post

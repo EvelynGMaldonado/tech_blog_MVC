@@ -17,7 +17,7 @@ router.get("/",(req,res)=>{
 })
 
 
-router.get("/post/:id",(req,res)=>{
+router.get("/single/post/:id",(req,res)=>{
     
     Post.findByPk(req.params.id,{
         include:[User, {
@@ -26,7 +26,8 @@ router.get("/post/:id",(req,res)=>{
         }]
     }).then(postData=>{
         const post = postData.get({plain:true});
-        res.render("post",{ post })
+        console.log(post)
+        res.render("posts",{ post })
     })
 })
 

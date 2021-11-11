@@ -2,14 +2,14 @@
 <div>
 {{#each posts as |userPost|}}
     <div class="card">
-        <a href='/comments/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
+        <a href='/single/post/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
         <h4>{{userPost.createdAt}}</h4>
         <p>{{userPost.description}}</p>
         {{!-- TODO add username of post creator --}}
         <h5>Created by: {{username.createdAt}}</h5>
-        <p>Comment: </p>
+        {{!-- <p>Comment: </p>
         <input id='post-comment' placeholder='leave a comment' type='text' />
-        <a class="btn btn-primary" id='my-comment' type='submit' href="dashboard/{{userPost.id}}">Comment this post</a>
+        <a class="btn btn-primary" id='my-comment' type='submit' href="dashboard/{{userPost.id}}">Comment this post</a> --}}
     </div>
 {{/each}}
 </div>

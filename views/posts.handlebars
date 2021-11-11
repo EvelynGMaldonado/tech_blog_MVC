@@ -1,1 +1,35 @@
 {{> header/header-block-loggedIn}}
+<div>
+
+    <div class="card">
+        <h2>{{post.name}}</h2>
+        <p>{{post.description}}</p>
+        {{!-- TODO add username of post creator --}}
+        <h5>Created by: {{post.User.username}}{{post.createdAt}}</h5>
+        
+        {{#if post.Comments}}
+        <p>Comment: </p>
+        <ul>
+        {{#each post.Comments}}
+        <li>
+            <p>{{body}}</p>
+            <p>Created by: {{User.username}}{{createdAt}}</p>
+        </li>
+        {{/each}}
+        </ul>
+        {{/if}}
+        <form id="create-comment-form">
+                <div class="mb-3" id="post-id" data-post={{post.id}} >
+                    <label for="validationTextarea">Enter yout comment</label>
+                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Enter your comment" required></textarea>
+                    <div class="invalid-feedback">
+                    Please enter a message in the textarea.
+                    </div>
+
+                    <button id="my-comment-btn">Create my new comment</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+<script src='../../js/comments.js'></script>

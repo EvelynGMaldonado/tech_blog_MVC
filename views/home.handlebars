@@ -7,14 +7,12 @@ the homepage and the dashboard; and the option to log in --}}
 <div>
 {{#each posts as |userPost|}}
     <div class="card">
-        <a href='/posts/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
-        <h4>{{userPost.createdAt}}</h4>
+        <a href='/single/post/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
+        <h5>Created by: {{User.username}} {{userPost.createdAt}} </h5>
         <p>{{userPost.description}}</p>
         {{!-- TODO add username of post creator --}}
-        <h5>Created by: {{username}}</h5>
         {{!-- <p>Comment: </p>
         <input id='post-comment' placeholder='leave a comment' type='text' /> --}}
-        <a class="btn btn-primary" id='my-comment-btn' type='submit' href="dashboard/comments/{{userPost.id}}">See more</a>
     </div>
 {{/each}}
 </div>

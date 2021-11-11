@@ -1,3 +1,25 @@
+
+
 {{> header/header-block-loggedIn}}
+<div class="card" id="post-id" data-post={{post.id}}>
+        {{!-- <a href='/post/{{userId}}'></a> --}}
+            <form id="create-post-form">
+                <label for="postName">Update the title of your post</label>
+                <input id='post-name' placeholder={{post.name}} type='input' />
+                <div class="mb-3">
+                    <label for="validationTextarea">Enter yout post</label>
+                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder={{post.description}} required></textarea>
+                    <div class="invalid-feedback">
+                    Please enter a message in the textarea.
+                    </div>
+                    {{!-- <h5>Created by: {{userPost.post_username}}</h5>
+                    <h3>{{userPost.date_created}}</h3> --}}
+                    <button id="create-post-btn">Update Post</button>
+                    <button id="create-post-btn">Delete Post</button>
+                    {{!-- i am taken back to the updated dashboard --}}
+                    </div>
+                </div>
+            </form>
 
-
+</div>
+ <script src='../js/deleteOrUpdate.js'></script>

@@ -9,10 +9,10 @@ posts I have already created and the option to add a new blog post
 <div>
 {{#each posts as |userPost|}}
     <div class="card">
-        <a href='/update-post/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
+        <a href='/single/post/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
         <h4>{{userPost.createdAt}}</h4>
         <p>{{userPost.description}}</p>
-        <a class="btn btn-primary" href="dashboard/update-post/{{userPost.id}}">Update or delete my post</a>
+        <a class="btn btn-primary" href="/dashboard/update-post/{{userPost.id}}">Update or delete my post</a>
     </div>
 {{/each}}
 </div>
