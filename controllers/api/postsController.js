@@ -24,6 +24,7 @@ router.post("/", (req, res) => {
 });
 
 router.put("/:id",(req,res)=>{
+  console.log(req.body)
   if(!req.session.userId){
     return res.status(401).send("you need to log in first to be able to update a post!")
   }
