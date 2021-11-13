@@ -29,6 +29,11 @@ h2 {
 h3 {
     font-weight: bolder;
 }
+h5, h6{
+    color:black;
+    font-weight: bolder;
+}
+
 #techbl {
     font-weight: bolder;
     font-size: 2.5rem;
@@ -38,8 +43,11 @@ h3 {
 #card-posts {
     margin-left: 15%;
     border:10px solid rgba(141, 226, 13, 0.733);
-    border-style: double;
+    border-style: dotted;
     border-width: thick;
+}
+#into-card {
+    margin-left: 0;
 }
 
 #create-post-style {
@@ -68,5 +76,16 @@ h3 {
 
 #create-style {
     margin-left: 35%;
+}
 
+#my-comment-btn {
+    margin-left: 0%;
+}
+
+#prev-post-style {
+    color:success;
+}
+
+#black-font {
+    color:black;
 }
