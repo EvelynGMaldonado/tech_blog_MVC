@@ -7,16 +7,23 @@ THEN I am taken to the dashboard and presented with any blog
 posts I have already created and the option to add a new blog post
 --}}
 <div>
-{{#each posts as |userPost|}}
-    <div class="card">
-        <a href='/single/post/{{userPost.id}}'><h2>{{userPost.name}}</h2></a>
-        <h4>{{userPost.createdAt}}</h4>
-        <p>{{userPost.description}}</p>
-        <a class="btn btn-primary" href="/dashboard/update-post/{{userPost.id}}">Update or delete my post</a>
+        {{#each posts as |userPost|}}
+            <div class="card border-successmt-3 mt-5 mb-3" id="card-posts" style="width: 70%;">
+                <div class="card-header bg-transparent border-success">
+                    <a class="text-center" href='/single/post/{{userPost.id}}'><h3 class="card-title">{{userPost.name}}</h3></a>
+                </div>
+                <div class="card-body text-success text-justify">
+                    
+                    <p class="card-text">{{userPost.description}}</p>
+            </div>
+            <div class="card-footer bg-transparent border-success">
+                <h6 class="text-right">Created by: {{User.username}} {{userPost.createdAt}} </h6>
+            </div>
+            <a style="width: 30%;" id="upd-del-btn-style" class="btn btn-success btn-lg font-weight-bolder mt-2 mb-2" href="/dashboard/update-post/{{userPost.id}}">Update or delete my post</a>
+            <a style="width: 30%;" id="create-style" class="btn btn-success btn-lg font-weight-bolder mb-2" href="dashboard/create-post">Create post</a>    
+        </div>
+        {{/each}}
     </div>
-{{/each}}
-</div>
-<a class="btn btn-primary" href="dashboard/create-post">Create post</a>
 
 {{!-- 
 WHEN I click on the button to add a new blog post
