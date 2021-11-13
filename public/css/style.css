@@ -1,0 +1,25 @@
+:root {
+    --darkblue: rgb(12, 52, 131);
+    --blue: rgb(162, 182, 223);
+    --lightblue: rgb(107, 140, 206);
+    --lightblue2: rgb(162, 182, 223);
+    --indigo: rgb(21, 20, 66);
+    --skyblue: rgb(0, 174, 255);
+    --white: white;
+    --gray: rgb(90, 88, 88);
+
+} 
+
+body {
+    background-color: var(--indigo);
+}
+
+nav{
+    background-color: lightgray;
+}
+
+#techbl {
+    font-weight: bolder;
+    font-size: 2.5rem;
+    letter-spacing: 0.05rem;
+}
