@@ -4,14 +4,11 @@
 THEN I see navigation links for the homepage, the dashboard, and the option to log out  --}}
 
 
-<div class="container">
-        <h1 class=" font-effect-shadow-multiple title-responsive"> This is the login page</h1>
+<div class="container mt-5 rounded log-sign" style="width: 35%;">
         <div class = "row">     
-            <div class="col-sm-12 col-md-3 margin-responsive text-center" id="left-image">
-            </div>        
-            <div class = "col-sm-12 col-md-4 offset-md-1" id="form">
-                <form id="login-form">
-                    <h2>Log in</h2>
+            <div class = "col" id="form">
+                <form class="mt-5 mb-3" id="login-form">
+                    <h2 id="log-sign">Log in</h2>
 
                     <label for="emaillogin" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" placeholder = "your username is your email">
@@ -19,11 +16,10 @@ THEN I see navigation links for the homepage, the dashboard, and the option to l
                     <label for="passwordlogin" class="form-label">Password</label>
                     <input type="text" class="form-control mb-2" id="password" placeholder ="password">
 
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" id="login-form-button">Log in</button>
+                    <button type="submit" class="btn btn-success btn-lg mt-3" style="width: 20%;"  id="login-form-button">Log in</button>
                 </form>
             </div>
-        <div class="col-sm-12 col-md-3 margin-responsive text-center offset-md-1" id="right-image"></div>
     </div>
 </div>
- <script src='./js/login.js'></script>
+<script src='./js/login.js'></script>
 
