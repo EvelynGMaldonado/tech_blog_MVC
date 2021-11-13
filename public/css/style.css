@@ -58,7 +58,14 @@ h5, h6{
     border-width: thick;
     padding: 2%;
 }
-
+#post-id {
+    background-color: var(--lightblue2);
+    margin-left: 15%;
+    border:10px solid rgba(87, 16, 16, 0.274);
+    border-style: dotted;
+    border-width: thick;
+    padding: 2%;
+}
 #createdby {
     font-weight: bolder;
 }

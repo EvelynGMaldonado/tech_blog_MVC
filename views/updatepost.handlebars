@@ -1,25 +1,23 @@
 
 
 {{> header/header-block-loggedIn}}
-<div class="card" id="post-id" data-post={{post.id}}>
-        {{!-- <a href='/post/{{userId}}'></a> --}}
-            <form id="update-post-form">
-                <label for="postName">Update the title of your post</label>
-                <input id='post-name' placeholder={{post.name}} type='input' />
-                <div class="mb-3">
-                    <label for="validationTextarea">Enter yout post</label>
-                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder={{post.description}} required></textarea>
-                    <div class="invalid-feedback">
-                    Please enter a message in the textarea.
-                    </div>
-                    {{!-- <h5>Created by: {{userPost.post_username}}</h5>
-                    <h3>{{userPost.date_created}}</h3> --}}
-                    <button id="update-post-btn">Update Post</button>
-                    <button id="delete-post-btn">Delete Post</button>
-                    {{!-- i am taken back to the updated dashboard --}}
-                    </div>
-                </div>
-            </form>
-
+<div class="card mt-5" id="post-id" data-post={{post.id}} style="width: 70%;">
+    <h2>Let's update the post!</h2>
+    {{!-- <a href='/post/{{userId}}'></a> --}}
+    <form id="update-post-form">
+    <div class="form-group">
+        <input id='post-name' type="input" class="form-control text-center" placeholder={{post.name}} aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control is-invalid text-center" id="validationTextarea" placeholder={{post.description}}  required></textarea>
+        <div class="invalid-feedback">
+        Please enter your post in the textarea.
+        </div>
+    </div>
+    <!-- <h5 id="createdby" class="text-right">Created by: {{userPost.post_username}}</h5> -->
+    <!-- <h6 class="text-right">{{userPost.date_created}}</h6>  -->
+    <button type="submit" id="update-post-btn" class="btn btn-success btn-lg font-weight-bolder"> Update post</button>
+    <button type="submit" id="delete-post-btn" class="btn btn-success btn-lg font-weight-bolder"> Delete post</button>
+    </form>
 </div>
 <script src='../../js/deleteOrUpdate.js'></script>
