@@ -7,6 +7,8 @@
     --skyblue: rgb(0, 174, 255);
     --white: white;
     --gray: rgb(90, 88, 88);
+    --green: rgba(141, 226, 13, 0.733);
+    --orangeish: rgba(255, 68, 0, 0.589);
 
 } 
 
@@ -18,6 +20,13 @@ nav{
     background-color: lightgray;
 }
 
+h2 {
+    text-align: center;
+    color: var(--green);
+    font-weight: bolder;
+    text-shadow:5px 5px 10px blue;
+}
+
 #techbl {
     font-weight: bolder;
     font-size: 2.5rem;
@@ -26,4 +35,17 @@ nav{
 
 #card-posts {
     margin-left: 15%;
+}
+
+#create-post-style {
+    background-color: var(--lightblue2);
+    margin-left: 15%;
+    border:10px solid rgba(87, 16, 16, 0.274);
+    border-style: dotted;
+    border-width: thick;
+    padding: 2%;
+}
+
+#createdby {
+    font-weight: bolder;
 }

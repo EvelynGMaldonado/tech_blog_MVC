@@ -1,22 +1,20 @@
 {{> header/header-block-loggedIn}}
-<div class="card">
-        {{!-- <a href='/post/{{userId}}'></a> --}}
-            <form id="create-post-form">
-                <label for="postName">Enter the title of your post</label>
-                <input id='post-name' placeholder='post name' type='input' />
-                <div class="mb-3">
-                    <label for="validationTextarea">Enter yout post</label>
-                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Enter your post" required></textarea>
-                    <div class="invalid-feedback">
-                    Please enter a message in the textarea.
-                    </div>
-                    {{!-- <h5>Created by: {{userPost.post_username}}</h5>
-                    <h3>{{userPost.date_created}}</h3> --}}
-                    <button id="create-post-btn">Create my new post</button>
-                    {{!-- i am taken back to the updated dashboard --}}
-                    </div>
-                </div>
-            </form>
-
+<div class="card mt-5" id="create-post-style" style="width: 70%;">
+    <h2>Let's make a new post!</h2>
+    {{!-- <a href='/post/{{userId}}'></a> --}}
+    <form id="create-post-form">
+    <div class="form-group">
+        <input id='post-name' type="input" class="form-control text-center" placeholder='Enter the title of your post'aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control is-invalid text-center" id="validationTextarea" placeholder="Enter your post" required></textarea>
+        <div class="invalid-feedback">
+        Please enter your post in the textarea.
+        </div>
+    </div>
+    <h5 id="createdyby" class="text-right">Created by: {{userPost.post_username}}</h5>
+    <h6 class="text-right">{{userPost.date_created}}</h6> 
+    <button type="submit" id="create-post-btn" class="btn btn-success btn-lg font-weight-bolder"> Create my new post</button>
+    </form>
 </div>
- <script src='../js/createpost.js'></script>
+<script src='../js/createpost.js'></script>
