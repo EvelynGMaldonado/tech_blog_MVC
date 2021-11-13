@@ -23,3 +23,7 @@ nav{
     font-size: 2.5rem;
     letter-spacing: 0.05rem;
 }
+
+#card-posts {
+    margin-left: 15%;
+}
