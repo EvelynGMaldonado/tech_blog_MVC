@@ -27,6 +27,16 @@ The user will be requiered to sign up or sign in in order to have full access to
 When the user decides leave a comment,or edit or delete their own post, then the blog will be updated. 
 When the user is idle on the site for more than a set time, then it will be able to see comments but will habe to log in agaim before adding, updating or deleting data.
 
+* The following images show the web application's appearance and functionality:
+
+![Landing page](./assets/landingpage.PNG)
+![Loggin](./assets/loggin.PNG)
+![Signup](./assets/signup.PNG)
+![Full post view](./assets/singlepost.PNG)
+![My posts](./assets/updelcreate.PNG)
+![Create post](./assets/createpost.PNG)
+![Edit post](./assets/updelete.PNG)
+
 ## License 
 This application is covered under the GNU GPLv3.0 License.
 
@@ -48,4 +58,4 @@ If you have any questions, please contact me to the information listed below.
 [Tech Blog](https://github.com/EvelynGMaldonado/tech_blog_MVC)
 
 * Url to the deployed application:
-[Tech Blog]()
+[Tech Blog](https://techblog-egm.herokuapp.com/)

@@ -87,15 +87,15 @@ router.post("/login",(req,res)=>{
 
 
 
-router.post("/logout", (req, res) => {
-    if(req.session.loggedIn) {
-        req.session.destroy(() => {
-            res.status(200).end();
-            return;
-        })
-    } else {
-        res.status(400).end();
-    }
-});
+// router.get("/logout", (req, res) => {
+//     if(req.session.loggedIn) {
+//         req.session.destroy(() => {
+//             res.status(200).end();
+//             return;
+//         })
+//     } else {
+//         res.status(400).end();
+//     }
+// });
 
 module.exports = router;

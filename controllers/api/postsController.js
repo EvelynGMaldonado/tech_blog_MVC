@@ -7,7 +7,7 @@ const { Post, User } = require("../../models");
 router.post("/", (req, res) => {
   if(!req.session.userId){
     return res.status(401).send("you need to log in first to be able to create a post!")
-  }
+  } 
   Post.create({
     name: req.body.name,
     description: req.body.description,
