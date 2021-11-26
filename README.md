@@ -29,13 +29,13 @@ When the user is idle on the site for more than a set time, then it will be able
 
 * The following images show the web application's appearance and functionality:
 
-![Landing page](./assets/landingpage.PNG)
-![Loggin](./assets/loggin.PNG)
-![Signup](./assets/signup.PNG)
-![Full post view](./assets/singlepost.PNG)
-![My posts](./assets/updelcreate.PNG)
+![Landing page](./Assets/landingpage.PNG)
+![Loggin](./Assets/loggin.PNG)
+![Signup](./Assets/signup.PNG)
+![Full post view](./Assets/singlepost.PNG)
+![My posts](./Assets/updelcreate.PNG)
 ![Create post](./assets/createpost.PNG)
-![Edit post](./assets/updelete.PNG)
+![Edit post](./Assets/updelete.PNG)
 
 ## License 
 This application is covered under the GNU GPLv3.0 License.
