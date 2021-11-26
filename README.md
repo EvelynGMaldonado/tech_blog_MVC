@@ -34,7 +34,7 @@ When the user is idle on the site for more than a set time, then it will be able
 ![Signup](./Assets/signup.PNG)
 ![Full post view](./Assets/singlepost.PNG)
 ![My posts](./Assets/updelcreate.PNG)
-![Create post](./assets/createpost.PNG)
+![Create post](./Assets/createpost.PNG)
 ![Edit post](./Assets/updelete.PNG)
 
 ## License 
