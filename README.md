@@ -18,7 +18,7 @@ A blog is a website that contains a writer's or group of writer's personal refle
 The Tech blog projetc has been built from scratch and designed to provide a nice and effective interaction between its users; It also follows the MVC paradigm in its architectural structure by using handlebars.js as the templating language, sequeliz as the ORM and express session npm package for authentication.
 
 ## Installation 
-Requiered dependencies: connect-session-sequelize, doenv, express, express-handlebars, express-session, mysql2 and sequelize.
+Requiered dependencies: connect-session-sequelize, dotenv, express, express-handlebars, express-session, mysql2 and sequelize.
 
 ## Usage 
 The Tech Blog application provides accesibility to the users so they can publish articles, blog posts, their thougs and opinions. When someone visits site for the first time, it will be presened with the existing blog posts and navigation links. 
